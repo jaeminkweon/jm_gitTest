@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    //val tickerStringArray : String = resources.getString(R.string.app_name)
+    lateinit var tickerStringArray : Array<String>
     var displayList : MutableList<String> = ArrayList()
     var filteredList : MutableList<String> = ArrayList()
     var tickers : MutableList<String> = ArrayList()
@@ -31,8 +31,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        tickerStringArray =  resources.getStringArray(R.array.ticker_list)
 
-        loadData()
+        filteredList.addAll(tickerStringArray)
+        //loadData()
         layoutManager = LinearLayoutManager(this)
         recyclerViewTicker.layoutManager = layoutManager
         getPage()
@@ -74,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                         displayList.clear()
                         filteredList.clear()
                         val search = p0.toLowerCase()
-                        tickers.forEach {
+                        tickerStringArray.forEach {
                             if(it.toLowerCase().contains(search)){
                                 filteredList.add(it)
                             }
