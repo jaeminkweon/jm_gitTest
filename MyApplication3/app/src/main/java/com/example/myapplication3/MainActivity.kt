@@ -1,7 +1,7 @@
 package com.example.myapplication3
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.widget.ArrayAdapter
 import android.widget.SearchView
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
         menuInflater.inflate(R.menu.main, menu)
-        val searchItem = menu.findItem(R.id.menu_search)
+        val searchItem = menu.findItem(R.id.ticker_search)
         if(searchItem != null){
             val searchView = searchItem.actionView as SearchView
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
